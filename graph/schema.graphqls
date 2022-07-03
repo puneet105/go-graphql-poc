@@ -1,0 +1,31 @@
+# in the schema we will be doing Query and Mutations
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+# These are the two queries we will be doing
+type Query {
+  familyDetails: [FamilyTree!]!
+  search(name: String!): FamilyTree
+}
+
+type Mutation {
+  add(FamilyTree: FamilyTreeInput!): FamilyTree!
+  delete(name: String!): FamilyTree!
+}
+
+input FamilyTreeInput {
+  name: String!
+  age: String!
+  address: String!
+  contact: String!
+}
+
+type FamilyTree {
+  id: ID!
+  name: String!
+  age: String!
+  address: String!
+  contact: String!
+}
